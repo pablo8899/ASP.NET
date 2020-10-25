@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using NewBrandingStyle.Web.Models;
+using Wsei.ExchangeThings.Web.Models;
 
-namespace NewBrandingStyle.Web.Controllers
+namespace Wsei.ExchangeThings.Web.Controllers
 {
     public class HomeController : Controller
     {

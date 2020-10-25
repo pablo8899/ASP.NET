@@ -1,6 +1,6 @@
 using System;
 
-namespace NewBrandingStyle.Web.Models
+namespace Wsei.ExchangeThings.Web.Models
 {
     public class ErrorViewModel
     {
