@@ -13,10 +13,11 @@ namespace Wsei.ExchangeThings.Web.Controllers
     {
         public AddNewItemResponseModel Post(ItemModel item) {
             bool s = !string.IsNullOrEmpty(item.Description) && !string.IsNullOrEmpty(item.Name);
+            string message = s ? "" : "Input fields cannot be empty";
             var res = new AddNewItemResponseModel
             {
                 success = s,
-                message = s ? "" : "Input fields cannot be empty"
+                message = s ? "" : message
             };
             return res;
         }

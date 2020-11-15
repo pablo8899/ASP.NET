@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Wsei.ExchangeThings.Web.Database;
 using Wsei.ExchangeThings.Web.Filters;
 
 namespace Wsei.ExchangeThings.Web
@@ -28,6 +30,9 @@ namespace Wsei.ExchangeThings.Web
             });
 
             services.AddTransient<MyCustomActionFilter>();
+            services.AddDbContext<ExchangesDbContext>(options => options
+                .UseSqlServer(Configuration.GetConnectionString("ExchangeThings"))
+            );
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

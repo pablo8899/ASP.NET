@@ -1,7 +1,26 @@
 ﻿@model AddNewItemConfirmationViewModel
 
+
 <h2>Add new item</h2>
 
 <p>Congratulations!</p>
 
 <p>Your new item was successfully added to the system</p>
+
+<table style="width:100%">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Visibility</th>
+    </tr>
+    @foreach (var item in ViewBag.Items)
+    {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Name</td>
+    <td>@item.Description</td>
+    <td>@item.IsVisible</td>
+</tr>
+    }
+</table>
