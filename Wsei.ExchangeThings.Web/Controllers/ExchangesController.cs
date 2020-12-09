@@ -46,7 +46,6 @@ namespace Wsei.ExchangeThings.Web.Controllers
         [HttpGet]
         public IActionResult AddConfirmation()
         {
-            ViewBag.Items = _dbContext.Items;
             return View();
         }
     }

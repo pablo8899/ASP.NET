@@ -1,6 +1,7 @@
 ﻿(function () {
     const alertElement = document.getElementById("success-alert");
     const errorAlertElement = document.getElementById("error-alert");
+    const list = document.getElementById("list");
     const msg = document.getElementById("msg");
     const form = document.forms[0];
     const addNewItem = async () => {
@@ -18,6 +19,18 @@
         const responseJson = await response.json();
         if (responseJson.success) {
             alertElement.style.display = "";
+            var HTML = "<table border=1 width=100%><tr><th>Name</th><th>Description</th><th>Visibility</th></tr>";
+
+            responseJson.data.forEach(element => {
+                HTML += "<tr><td align=center>" + element.name + "</td>";
+                HTML += "<td align=center>" + element.description + "</td>";
+                HTML += "<td align=center>" + element.isVisible + "</td></tr>";
+            });
+
+            HTML += "</table>";
+
+            list.innerHTML = HTML;
+            list.style.display =  "";
         } else {
             errorAlertElement.style.display = "";
             msg.innerText = responseJson.message;
@@ -28,6 +41,7 @@
             event.preventDefault();
             alertElement.style.display = "none";
             errorAlertElement.style.display = "none";
+            list.style.display = "none";
             addNewItem().then(() => console.log("added successfully"));
         });
     });

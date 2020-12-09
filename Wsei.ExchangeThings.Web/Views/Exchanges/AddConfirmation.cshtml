@@ -1,5 +1,5 @@
 ﻿@model AddNewItemConfirmationViewModel
-
+@inject Wsei.ExchangeThings.Web.Database.ExchangesDbContext DbContext;
 
 <h2>Add new item</h2>
 
@@ -14,13 +14,13 @@
         <th>Description</th>
         <th>Visibility</th>
     </tr>
-    @foreach (var item in ViewBag.Items)
+    @foreach (var item in DbContext.Items)
     {
-<tr>
-    <td>@item.Id</td>
-    <td>@item.Name</td>
-    <td>@item.Description</td>
-    <td>@item.IsVisible</td>
-</tr>
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Name</td>
+        <td>@item.Description</td>
+        <td>@item.IsVisible</td>
+    </tr>
     }
 </table>
